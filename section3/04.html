@@ -8,11 +8,26 @@
 </head>
 <body>
 q    <script>
-        function solution(str){
+        function solution(str,c){
             let answer=[];
+            //가장 가까이 있는 e를 search 하고 거리를 구하삼 
+            //.indexOf()써야할듯 
+            let n=str.length;
+            
+            for(let i=0; i<n; i++){
+                let dist=0; //e일경우
+                let ridx, lidx; //좌우로 움직여서 찾아보기
+
+                if(str[i]!==c){
+                    if(i!==n-1) ridx = str.indexOf(c,i+1); //오른쪽방향
+                    else if(i!==0) lidx = str.indexOf(c,i-1); //왼쪽방향 <-- 수정 필요 
+                    dist = Math.min(Math.abs(i-ridx), Math.abs(i-ridx)); //비교한 것 중 거리가 가장 짧은 거 고르기
+                }
+                answer.push(dist);
+            }
             return answer;
         }
-        console.log(solution("teachermode e"));
+        console.log(solution("teachermode","e"));
     </script>
 </body>
 </html>
