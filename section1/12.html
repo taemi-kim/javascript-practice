@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대문자로 통일</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            //대문자로 바꿔버리기
+            let answer="";
+            for(let x of str){
+                if(x!=x.toUpperCase()) answer+=x.toUpperCase();
+                else answer+=x;
+            }
+            return answer;
+        }
+        console.log(solution('ItisTimeToStudy'));
+    </script>
+</body>
+</html>

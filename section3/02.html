@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유효한 팰린드롬</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let answer = "YES";
+            str=str.toLowerCase().replace(/[^a-z]/g,''); //정규식 활용해서 특수문자 제거 
+            console.log(str);
+            let reversed = str.split('').reverse().join('')
+            console.log(reversed);
+            if(reversed!=str) answer="NO";
+            return answer;
+        }
+        console.log(solution("found7, time: study; Yduts; emit, 7Dnuof"));
+    </script>
+</body>
+</html>

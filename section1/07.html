@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10부제</title>
+</head>
+<body>
+    <script>
+        //자동차 번호의 1의 자리 숫자 == 날짜의 1의 자리 숫자 (X)
+        //위 규칙 위반하는 자동차의 대수
+
+        function solution(n, arr){
+            let bad = [];
+            for (let x of arr){
+                if(x%10==n){
+                    bad.push(x);
+                }
+            }
+            return bad.length;
+        }
+
+        console.log(solution(3, [25,23,11,47,53,17,33]));
+        console.log(solution(0, [12,20,54,30,87,91,30]));
+    </script>
+</body>
+</html>

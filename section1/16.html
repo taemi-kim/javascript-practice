@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중복 문자 제거</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            //.split()으로 나눴을 때 .length가 2개보다 많으면 어쩌지
+
+            //두번째 출연하는 거면 지워줘
+
+            //for loop 두번써서 같으면 splice해도 ㅗ될듯
+            //splice 순서, 인덱스 변화 주의
+            //지워야하는 인덱스 지우지말고 먼저 배열에 저장해두기
+            //마지막에 배열 뒤에서부터 인덱스 뽑아서 지우기(뒤에 있는 애부터)
+            
+            //마이 답
+            // let del=[];
+            // for(let i=0; i<str.length-1; i++){
+            //     for(let j=1; i<str.length; j++){
+            //         if(str[i]===str[j]) del.push(j);
+            //     }
+            // }
+            // del=del.reverse();
+            // for(let x of del){
+            //     str.splice(x,1);
+            // }
+            // return str;
+
+            //훨 나은 답
+            let answer="";
+            for (let i=0; i<str.length; i++){
+                if(i===str.indexOf(str[i])) answer+=str[i]; //처음 나온 숫자만 
+            }
+            return answer;
+        }
+        console.log(solution("ksekkset"));
+    </script>
+    
+</body>
+</html>

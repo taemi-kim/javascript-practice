@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일곱 난쟁이 - try2</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            //전체의 합 구하기
+            //합에서 두수의 합을 뺐을 때 100이 되는 두 수를 구해서 제거 
+            let answer=arr;
+            let total = arr.reduce((a,b)=>a+b,0); //0에다가 누적 
+            for(let i=0; i<8; i++){ //첫째수
+                for(let j=1; i<9; j++){ //첫째+둘째, 첫째+셋째..iterate
+                    let leftover = total - (arr[i]+arr[j]);
+                    if(leftover==100){
+                        arr.splice(i,1);
+                        arr.splice(j,1);
+                        //야 이거 틀렸다~ 위에서 지워지는 순간 
+                        //원래 j 자리에 있던 값이 i 자리로 오게 된다구~ 
+                        //option1:
+                        arr.splice(i,1);
+                        arr.splice(i,1); 
+
+                        //option2: 얘가 베스트임 !!! 직관적 코드 
+                        arr.splice(j,1);
+                        arr.splice(i,1); 
+                    }
+                }
+            }
+            return answer;
+        }
+        //차이점
+        //  나는 answer에다가 arr값을 copy 하지 않고 쌩 arr 값..위험할ㄹ 듯 
+        //  arr.splice(j,1);
+                        //야 이거 틀렸다~ 위에서 지워지는 순간 
+                        //원래 j 자리에 있던 값이 i 자리로 오게 된다구~ 
+        console.log(solution([20,7,23,19,10,15,25,8,13]));
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중복단어제거</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            //console.log(arr.indexOf(arr[0]));
+            let answer;
+            //let answer=[];
+            // for (let i=0; i<arr.length; i++){
+            //     if(arr.indexOf(arr[i])===i) answer.push(arr[i]);
+            // }
+            answer=arr.filter((v,i)=>{
+                if(arr.indexOf(v)==i) return v; //필터링 해서 리턴한 v값을 answer에 저장해줌 (반복호출)
+            })
+            return answer;
+        }
+        //차이점
+        //  a)filter()사용했네 ㅋ 똑똑하군
+        console.log(solution(["good","time","good","time","student"]));
+    </script>
+</body>
+</html>

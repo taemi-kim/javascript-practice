@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회문 문자열 재도전</title>
+</head>
+<body>
+    <script>
+        //1) for문으로 비교하는 방법 
+        //반으로 갈라서 짝꿍인덱스들끼리 비교
+        //0123 
+        // ^
+        //01234
+        //  ^
+        function solution(str){
+            let answer="YES";
+            let n = str.length;
+            str = str.toLowerCase();
+            for(let i=0; i<Math.floor(n/2); i++){
+                //len이 4일때 0은 3이랑 1은 2랑 비교 [i, n-i-1], 
+                //len이 5일때 0은 4랑 1은 3이랑 비교 [i, n-i-1]
+                //홀짝일때 어쨌든 2로 나눈 몫까지의 인덱스까지만 비교하면됌
+                if(str[i]!==str[n-i-1]) answer="NO";
+
+            }
+            return answer;
+        }
+        console.log(solution("goooG"));
+    </script>
+    <script>
+        //2) split + reverse 
+        function solution2(str){
+            let answer="YES";
+            str=str.toLowerCase();
+            //문자하나하나로 쪼개진 후 배열에 저장된걸 리버스, 다시 붙혀서 스트링으로 바꿔줌
+            let reversed=str.split("").reverse().join("");
+            //console.log(reversed);
+            if(str!==reversed) answer="NO";
+            return answer;
+        }
+        console.log(solution2("goooG"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자 찾기</title>
+</head>
+<body>
+    <script>
+        function solution(arr,c){
+            //해당 문자가 문자열 안에 얼마나?
+            let count = 0;
+            for (let x of arr){
+                if (x==c) count++;
+            }
+            return count;
+
+            //split
+            // let answer= arr.split(c).length - 1;
+            // return answer;
+        }
+        console.log(solution('COMPUTERPROGRAMMING', 'R'));
+    </script>
+</body>
+</html>

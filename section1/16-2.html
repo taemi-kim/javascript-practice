@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자갯수응용</title>
+</head>
+<body>
+    <script>
+        function solution(str,c){
+            let answer=0; 
+            let pos=str.indexOf(c);//c문자 출현 첫 인덱스 기준
+            while(pos!=-1){ //c문자를 찾지 못했을 때 break
+                answer++; //찾으면 +1
+                pos=str.indexOf(c, pos+1); //pos 재할당해줌 찾은 인덱스 다음으로
+            }
+            return answer;
+        }
+        console.log(solution("ksekkset","k"));
+    </script>
+</body>
+</html>

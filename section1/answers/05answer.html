@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                let answer, min=Number.MAX_SAFE_INTEGER;
+                for(let i=1; i<arr.length; i++){
+                    if(arr[i]<min) min=arr[i];
+                }
+                answer=min;
+                return answer;
+
+            }
+
+            let arr=[5, 7, 1, 3, 2, 9, 11];
+            console.log(solution(arr));
+            //차이점
+            //  a) min을 아~주 큰 값으로 초기화
+            //  b) for loop으로 iterated the array
+            //  c) 난 그냥 math lib 씀 이러면 안되낭
+        </script>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일곱 난쟁이</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            //9개의 수 중 합이 100이 되는 7개 고르기
+            //입력된 순서대로 출력되어야 함
+
+            //아홉개의 수를 더한 합을 구하기
+            //합 - 100 한 값. 
+            //leftover 값 - arr[i] 했을 때의 값이 나머지 array에 존재하냐? 안한다면 패스
+
+            let total = arr.reduce((accumulator, currentNum)=>accumulator+currentNum,0);
+            //console.log(total); 140
+            let leftover = total - 100; //두개를 더했을 때 40이 되는 값은 어떤 로직으로 구하지 
+            let answer=[];
+            answer = arr.filter((v,i)=>{if(leftover%v!=0) return v;});
+
+            // function check(arr){
+            //     arr.forEach((number, index)=>{
+            //         let copy = arr;
+            //         copy.splice(i,1); //현재 원본 어레이에서 집중하고 있는 값을 뺀 새 배열
+
+            //         let partner = leftover - arr[i] //현재 값과 더했을 때 leftover가 되기 위한 짝궁 값
+            //         let elementsIn = false;
+            //         if(copy.indexof(partner)>0) elementsIn = true; //짝궁값이 나머지 배열에 존재?
+            //         if(elementsIn == true) return [arr[i],partner]; 
+            //     });
+            // }
+            
+        
+        }
+        function check(arr){
+            let total = arr.reduce((accumulator, currentNum)=>accumulator+currentNum,0);
+            //console.log(total); 140
+            let leftover = total - 100; //두개를 더했을 때 40이 되는 값은 어떤 로직으로 구하지 
+            //let answer=[];
+            //answer = arr.filter((v,i)=>{if(leftover%v!=0) return v;});
+                arr.forEach((x,i,arr)=>{
+                    let copy = arr;
+                    copy = copy.splice(i,1); //현재 원본 어레이에서 집중하고 있는 값을 뺀 새 배열
+
+                    let partner = leftover - arr[i] //현재 값과 더했을 때 leftover가 되기 위한 짝궁 값
+                    let elementsIn = false;
+                    if(copy.indexOf(partner)>0) elementsIn = true; //짝궁값이 나머지 배열에 존재?
+                    if(elementsIn == true) return arr[i]; 
+                });
+            }
+        console.log(check([20,7,23,19,10,15,25,8,13]));
+        console.log(solution([20,7,23,19,10,15,25,8,13]));
+    </script>
+    
+</body>
+</html>

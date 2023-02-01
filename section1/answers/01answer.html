@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer;
+                if(a<b) answer=a;
+                else answer=b;
+                if(c<answer) answer=c; 
+                return answer;
+            }
+
+            //차이점: 
+            //a) var 대신 let 사용
+            //b) inner loop 포함한 if-else문 하나
+            //   대신 간단한 if-else 문 두개 
+            console.log(solution(2, 5, 1));
+        </script>
+    </body>
+</html>

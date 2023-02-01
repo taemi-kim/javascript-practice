@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자만 추출 재도전</title>
+</head>
+<body>
+    <script>
+    function solution(str){
+        //정규식 활용 문자 제거
+        str=str.replace(/[a-zA-z]/g,"");
+        console.log(str);
+
+        //0208을 바꾸는 방법
+        //앞이 0이면 제거하삼
+        // //parseInt
+        return parseInt(str);
+    }
+    console.log(solution("g0en2T0s8eSoft"));
+    </script>
+</body>
+</html>

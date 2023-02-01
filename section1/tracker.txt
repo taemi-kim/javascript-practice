@@ -1,0 +1,122 @@
+[기본문제 풀이]
+
+01 세 수 중 최솟값
+    try1: 4:46
+    //차이점: 
+        //  a) var 대신 let 사용
+        //  b) inner loop 포함한 if-else문 하나
+        //   대신 간단한 if-else 문 두개 
+
+02 삼각형 판별하기
+    try1: 6:09
+    //차이점
+        //  a) variable 정의를 상단에 한꺼번에
+        //  b) 나는 max= b,a,c 순서로 여긴 a,b,c
+        //  c) string "YES","NO"를 answer 변수에 담음
+        //  d) 작은 두수의 합을 변수에 안담음
+
+03 연필개수
+    try1: 5:07
+    //차이점
+        //  a) 내가 걍 잘못 생각함 몫과 나머지를 더하면 오류남
+        //  b) "몫을 반올림" 하는 게 정답 <== Math.ceil()
+
+04 1~n까지 합 출력
+    try1: 4:01
+    //차이점
+        //  a) 나는 for(let i=0; i<n+1)으로 했음 
+        //  b) 정답이 for(let i=1; i<=n)이 더 직관적임 문제 반영 ㅇㅇ
+    
+05 최솟값 구하기
+    try1: 2:30
+    //차이점
+            //  a) Number.MAX_SAFFE_INTEGER
+                    ㄴ min을 아~주 큰 값으로 초기화
+            //  b) for loop으로 iterated the array
+            //  c) 난 그냥 math 내장함수 씀 이러면 안되낭
+            아니 해도 된대~~ 전개 연산자(...)까즤~~ 더 나은 듯 ㅇㅇ Math.min(...arr);
+
+06 홀수
+    try1: 6:07
+    //차이점
+            //  a) for of 문 ==> let x of arr 
+            //  b) 내가 짠 게 더 내 맘에 듬 이건
+            //  c) 꿀팁!!! == , === 둘 중 하나 골라서 통일
+
+07 10부제
+    try1: 4:19
+    //차이점
+        //  a) array의 length 출력 vs
+        //  b) count로 숫자 track
+
+08 일곱난쟁이
+    try1: 44:11 ㅋ 못품
+    //차이점
+            //  a) for문 두개 써서 차례로 iterate 
+            //  b) 전체합을 구해서 두 수의 합을 뺐을 때 100이 되느냐 마느냐를 보는 건 잘함
+    try2: 2~3분
+    //차이점
+        //  나는 answer에다가 arr값을 copy 하지 않고 쌩 arr 값..위험할ㄹ 듯 
+        // let answer=arr; <---- shallow copy 
+        // answer 도 arr 를 가르키는 같은 화살표(포인터)를 부여받음. 주소값이 같으니
+        // arr를 edit 하면 answer 도 같이 바뀜
+
+        //  arr.splice(j,1);
+                        //야 이거 틀렸다~ 위에서 지워지는 순간 
+                        //원래 j 자리에 있던 값이 i 자리로 오게 된다구~ 
+
+09 A를 #으로
+    try1: 14:04 ㅋ 못품
+    //차이점
+        //  a) 로직 생각했으면 되는 방향으로 밀고나가삼 잘하는 것처럼 보이려는 노력하지 말고
+        //  b) replace()는 잘 찾았는데, 문법을 잘 몰라서 틀림
+        //  c) for(let x of str);   
+
+10 문자 찾기 
+    try1: 2:23
+    //차이점
+            //  a) x==t 대신 x===t 로 씀
+            //  b) .split()사용해서 문자열에 문자가 포함될때마다 나누기.
+            //      3개 있으면 fragment 가 4개일거니까 .length-1 값 리턴
+
+11 대문자찾기
+    try1: 7:31 못품ㅋ ascii code 사용했는데 안뒈
+    //차이점
+            //  a)let num=x.charCodeAt(); //문자를 아스키코드로 바꿔주는 코드 
+            //  b).toUpperCase()가 나음
+
+12 대문자로통일
+    try1: 4:14
+    //차이점
+            //  a) 나는 x!=x.toUpperCase(), 이건 x===x.toLowerCase() answer+=x.toUpperCase();
+            //  b) ASCII 코드로 쓰고 String.fromCharCode <---- ascii를 다시 str로 바꿔주는애
+            //  c) 근데 가장 베스트는 걍 s.toUpperCase() 한방에! 
+
+13 대문자변환
+    try1: 2:40
+    //차이점
+            //  a) elseif 대신 걍 else 써도 되는군
+
+14 가장 긴 문자열
+    try1: 4:10
+    //차이점
+            //  a) 난 max=0 Number.MIN_SAFE_INTEGER로 쓰는 연습도 하면 ㄱㅊ을ㄹ듯
+            //  b) 나는 index 값을 써가면서 한 번 꼬았는데 그냥 바로 answer 값을 x로 재할당 해버리면 더 간단! 
+
+15 가운데 문자 출력
+    try1: 6:39
+    //차이점
+        //  a) parseInt()대신 Math.floor()사용
+        //  b) .substring or .substr 문법 사용하는 게 훨 나음 문장 2개에서 1줄 된다
+
+16 중복 문자 제거
+    try1: 14:24 liveserver 안열려서 맞는지 확인불가
+    //차이점
+            //  a)일단 겁나 간단하넹..바로 보면 이해 안되는군
+            //  b)indexOf()의 문법과 원리 이해
+            //      처음 나온 문자의 index = 중복된 문자의 s.indexOf(s[index])값 
+
+17 중복 단어 제거
+    try1: 4:02 liveserver 왜 안돼ㅗ!!!!!!!!!
+    //차이점
+        //  a)filter()사용했네 ㅋ 똑똑하군

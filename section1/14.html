@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가장 긴 문자열</title>
+</head>
+<body>
+    <script>
+        function solution(n,arr){
+            //n개의 문자열, arr 중 가장 긴 거
+            //n은 어따쓰라고 주어진 걸까
+
+            //n 안쓰고 풀 경우 
+            let max = 0;
+            let index = 0;
+            for (let x of arr){
+                if (x.length>max){
+                    max=x.length;
+                    index=arr.indexOf(x);
+                }
+            }
+            //let answer="";
+            // answer=x;
+
+            return arr[index];
+
+            // 
+            //n 쓰고 풀면? 모ㅡㄹ겠는디 안써도 된대 
+            // let max=0;
+            // for (let i=0; i<n; i++){
+            //     if(arr[i].length>max){
+            //         max=arr[i].length;
+            //     }
+            // }
+        }
+        console.log(solution(5,["teacher","time","student","beautiful","good"]))
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대문자 찾기</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            //대문자 몇개
+            let count=0;
+            for(let x of str){
+                //console.log(x);
+                let num=x.charCodeAt(); //문자를 아스키코드로 바꿔주는 코드
+                if(num>=65 && num<=90) count++;
+            }
+            return count;
+        }
+        console.log(solution("KoreaTimeGood"));
+    </script>
+</body>
+</html>

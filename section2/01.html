@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>큰 수 출력하기</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            //자신의 바로 앞 수 보다 큰 수만 출려갛는 프로그램
+            //첫번째 수 출력
+            //첫번째 수 기준 
+            //출력 or not 이 앞수랑..
+            let answer = [arr[0]];
+            console.log(answer);
+            for(let i=1; i<arr.length; i++){
+                if(arr[i]>arr[i-1]) answer.push(arr[i]);
+            }
+            return answer;
+            
+        }
+        console.log(solution([7,3,9,5,6,12]));
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>삼각형 판별하기</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                //a,b,c 숫자를 정렬한다.
+                let max;
+                if (a<b) max = b;
+                else max = a;
+                if (max<c) max = c;
+                //else max = max;
+            
+                //가장 큰 수를 제외한 두 수를 더했을 때의 합이
+                //큰수보타 크면 yes 
+                let total = a + b + c; 
+                let sum = total - max; 
+                if (sum > max) return "YES";
+                else return "NO"; //아니면 no
+            }
+            console.log(solution(6,7,11));
+            console.log(solution(13,33,17));
+        </script>
+
+    </body>
+</html>

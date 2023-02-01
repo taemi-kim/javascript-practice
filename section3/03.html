@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자만 추출</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let answer;
+            //문자열 중 숫자 추출 
+            //제일 처음 추출ㄹ되는 숫자가 0이면 제거 
+
+            str=str.replace(/[a-zA-Z]/g,"");
+            if(str[0]==0) answer=str.substring(1,str.length);
+
+            return parseInt(answer);
+
+            //parseInt 없이 숫자로 바꾸는 방법 
+            //answer=answer*10*Number(x) 
+            2 =0*10 + 2
+            20 =2*10 + 0
+            208 = 20*10+8
+        }
+        console.log(solution("g0en2T0s8eSoft"));
+    </script>
+</body>
+</html>

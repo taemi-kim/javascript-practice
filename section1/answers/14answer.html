@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="", max=Number.MIN_SAFE_INTEGER;
+                for(let x of s){
+                    if(x.length>max){
+                        max=x.length;
+                        answer=x;
+                    }
+                }
+                return answer;
+            }
+            //차이점
+            //  a) 난 max=0 Number.MIN_SAFE_INTEGER로 쓰는 연습도 하면 ㄱㅊ을ㄹ듯
+            //  b) 나는 index 값을 써가면서 한 번 꼬았는데 그냥 바로 answer 값을 x로 재할당 해버리면 더 간단! 
+            let str=["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

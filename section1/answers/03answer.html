@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer;
+                answer=Math.ceil(n/12);
+                return answer;
+            }
+
+            console.log(solution(178));
+        //차이점
+        //  a) 내가 걍 잘못 생각함 몫과 나머지를 더하면 오류남
+        //  b) "몫을 반올림" 하는 게 정답 <== Math.ceil()
+        </script>
+    </body>
+</html>

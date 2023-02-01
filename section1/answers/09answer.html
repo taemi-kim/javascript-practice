@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="";
+                for(let x of s){
+                    if(x=='A') answer+='#';
+                    else answer+=x;
+                }
+                return answer;
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer=s;
+                answer=answer.replace(/A/g, "#");
+                return answer;
+            }
+            
+            let str="BANANA";
+            console.log(solution(str));
+        //차이점
+        //  a) 로직 생각했으면 되는 방향으로 밀고나가삼 잘하는 것처럼 보이려는 노력하지 말고
+        //  b) replace()는 잘 찾았는데, 문법을 잘 몰라서 틀림
+        //  c) for(let x of str);        
+        </script>
+    </body>
+</html>

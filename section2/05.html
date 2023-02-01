@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>등수구하기</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            
+            // let answer = [];
+            // for(let i=0; i<arr.length; i++){
+            //     let rank=1;
+            //     for(let j=0; j<arr.length; j++){
+            //         if(arr[i]<arr[j]) rank++;
+            //     }
+            //     answer.splice(i,0,rank);
+
+            // }
+
+            let n=arr.length;
+            let answer=Array.from({length:n},()=>1);
+            for(let i=0; i<arr.length; i++){
+                for(let j=0; j<arr.length; j++){
+                    if(arr[i]<arr[j]) answer[i]++;
+                }
+            }
+            return answer;
+        }
+
+
+
+
+
+        //차이점
+        //  a) 야 그래도 배열, 같은 위치에 
+        //     나머지 숫자 차례로 iterate 해서 내가 더 작을 때마다 ++하는 거
+        //     이 로직은 잘ㄹ해따..
+        //  b) Array.from()문법
+        console.log(solution([87,89,92,100,76]));
+    </script>
+</body>
+</html>

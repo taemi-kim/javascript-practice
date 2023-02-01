@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>격자판 최대합</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            //행의 합 (i=row)
+            let answer;
+            let rSum=0, cSum=0, dSum=0;
+            
+            // for(let i=0; i<arr.length; i++){
+            //     let rTemp = arr[i].reduce((accum, v)=> accum+v);
+            //     //console.log(rTemp);
+            //     if(rSum<rTemp) rSum=rTemp;
+            // }
+            //열의 합 (j=col)
+            //let cTemp=0;
+            for(let j=0; j<arr.length; j++){
+                let rTemp=0, cTemp=0;
+                for(let i=0; i<arr[0].length; i++){
+                    //열의 합 (j=col)
+                    cTemp += arr[i][j];
+                    //console.log(arr[i][j]);
+                    if(cSum<cTemp) cSum=cTemp;
+
+                    //행의 합 (i=row)
+                    //밖에다 쓰는 것보다 안에다 쓰는 게 더 시간복잡도가 낮은지 높은지?
+                    rTemp = arr[i].reduce((accum, v)=> accum+v);
+                    if(rSum<rTemp) rSum=rTemp;
+                    
+                }
+            }
+            //대각선의 합
+            let dSum1=0, dSum2=0;
+             //0*0 1*1 2*2 3*3 4*4
+            for(let i=0; i<arr.length; i++){
+                dSum1 += arr[i][i];
+                if(dSum<dSum1) dSum=dSum1;
+            }
+             //4*4 3*3 2*2 1*1 0*0 
+            for(let i=4; i>=0; i--){
+                dSum2 += arr[i][i];
+                if(dSum<dSum2) dSum=dSum2;
+            }
+            
+            console.log(rSum,cSum,dSum);
+            answer = Math.max(rSum,cSum,dSum)
+            return answer;
+        }
+        let input = [
+                    [10,13,10,12,15],
+                    [12,39,30,23,11],
+                    [11,25,50,53,15],
+                    [19,27,29,37,27],
+                    [19,13,30,13,19]];
+        console.log(solution(input));
+    </script>
+</body>
+</html>

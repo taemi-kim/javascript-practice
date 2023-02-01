@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="";
+                //console.log(s.indexOf("K"));
+                for(let i=0; i<s.length; i++){
+                    //console.log(s[i], i, s.indexOf(s[i]));
+                    if(s.indexOf(s[i])===i) answer+=s[i];
+                }
+                return answer;
+            }
+            //차이점
+            //  a)일단 겁나 간단하넹..바로 보면 이해 안되는군
+            //  b)indexOf()의 문법과 원리 이해
+            //      처음 나온 문자의 index = 중복된 문자의 s.indexOf(s[index])값 
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>

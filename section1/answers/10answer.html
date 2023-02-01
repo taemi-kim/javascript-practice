@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer=0;
+                for(let x of s){
+                    if(x===t) answer++;
+                }
+                return answer;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+            //차이점
+            //  a) x==t 대신 x===t 로 씀
+            //  b) .split()사용해서 문자열에 문자가 포함될때마다 나누기.
+            //      3개 있으면 fragment 가 4개일거니까 .length-1 값 리턴
+        </script>
+    </body>
+</html>
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer=s.split(t).length;
+                return answer-1;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html>
