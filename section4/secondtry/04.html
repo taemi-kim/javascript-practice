@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>졸업 선물 재도전</title>
+</head>
+<body>
+    <script>
+        function solution(m, price){
+            let answer=0;
+            let n=price.length;
+            //배송비 + 가격 했을ㄹ 때 가장 적은 것부터 정렬
+            //차례로 쿠폰할인 받았을 경우를 Iterate 해서 가장 학생수가 큰 걸로 answer val iterate
+            price = price.sort((a,b)=>{return (a[0]+a[1])-(b[0]+b[1]);});
+            //console.log(price);
+
+            // let count=1;
+            for(let i=0; i<n; i++){
+                let leftover=m - price[i][0]/2+price[i][1];
+                let count=1;
+                for(let j=0; j<n; j++){
+                    if(j!=i && price[j][0]+price[j][1]>leftover) break;
+                    if(j!=i && price[j][0]+price[j][1]<=leftover){
+                        count++;
+                        leftover -= price[j][0]+price[j][1];
+
+                    }
+                }answer=Math.max(answer,count); //왜 여긴가?
+            }
+            
+            return answer;
+        }
+        console.log(solution(28, [[6,6],[2,2],[4,3],[4,5],[10,3]]));
+    </script>
+</body>
+</html>
