@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>졸업 선물ㄹ</title>
+</head>
+<body>
+    <script>
+        function solution(info, wish){
+            //상품 하나 반값 할인 -> 상품 가격 중 가장 비싼거? 
+            //
+            let answer=0;
+            let classSize = info[0];
+            let budget = info[1];
+
+            //1)가격 + 배송비 합이 가장 적은 순으로 정렬
+            //2)작은 수 부터 다 더하는 게 맞는데, 어디다가 쿠폰 쓰지?
+                //<--얠 모르니까 경우의 수 다 해봐야함
+            //let min=MAX_SAFE_INTEGER;
+            wish.sort((a,b)=>{
+                        if(a[0]+a[1]<b[0]+b[1]) return -1;
+                        else if(a[0]+a[1]>b[0]+b[1]) return 1;
+                    }); //그냥 wish.sort((a,b)=>{a[0]+a[1]-b[0]+b[1]});
+            //console.log(classSize);
+            
+            for(let i=0; i<classSize; i++){
+                let money = budget - (wish[i][0]/2+wish[i][1]); //할인받고 남은 예
+                let count=1; //할인을 구매품목으로 설정
+                for(let j=0; j<classSize; j++){
+                    if(j!==i && wish[j][0]+wish[j][1]>money) break; //예산보다 합이 더 클 경우
+                    if(j!==i && wish[j][0]+wish[j][1]<=money){ //예산보다 합이 작거나 맞는 경우
+                        money-=wish[j][0]+wish[j][1]; //할당 잘해
+                        count++;
+
+                    }
+                }
+                answer=Math.max(answer,count);//count랑 answer 중 더 큰 걸로 재 할당
+                
+            }
+        return answer;
+        }
+        console.log(solution([5,28], [[6,6],[2,2],[4,3],[4,5],[10,3]]));
+    </script>
+</body>
+</html>
