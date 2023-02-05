@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아나그램</title>
+</head>
+<body>
+    <script>
+        function solution(str1, str2){
+            let answer="YES";
+            //대소문자 구분
+            let sH = new Map();
+            // let sH2 = new Map();
+            for(let x of str1){
+                if(sH.has(x)) sH.set(x, sH.get(x)+1);
+                else sH.set(x, 1);
+            }
+            
+            //아닌 경우를 먼저 생각하는 게 좋을 듯
+            //첫번째 sH의 key 모두가 두번쨰에 있는지
+            //그 다음 갯수가 동일한지
+
+            //str1 에 대해서만 map 만들고 
+            //str2 iterate 하면서 str1 map 의 key와 일치할 때마다 value-1해서 상쇄
+            for (let x of str2){
+                if(sH.has(x)){
+                    if(sH.get(x)===0) answer="NO";
+                    else{
+                        sH.set(x, sH.get(x)-1);
+                    }
+
+                }else answer="NO";
+            }
+            return answer;
+
+        }
+        console.log(solution("abaCC","Caaab"));
+    </script>
+</body>
+</html>

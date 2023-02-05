@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연속 부분수열 1</title>
+</head>
+<body>
+    <script>
+        function solution(m, arr){
+            //arr 의 순서를 해치면 안되ㅣㄴ다. '연속부분수열' 이니까
+            //갯수 상관없이 합이 m이 되어야함
+            
+            //0부터 iterate 하면서 이중 포문 돌기 
+            //투포인터알골리즘 O(n)으로 하는 방법
+            //lt=0, rt=0 으로 해서 동시 시작, lt는 고정
+            //rt가 계속 옆으로 가면서 sum이라는 수에 원소를 더함.
+            //sum이 m보다 작을 경우 계속 더함
+            //m보다 커지면 lt를 움직여서 다시 시작, m이랑 같으면 arr[lt:rt+1]이 부분수열, cnt++
+            let n=arr.length;
+            let lt=0
+            let rt=lt+1;
+            
+            let count=0;
+            let sum=arr[lt]; //초기화 여기서 하는 거 맞지
+            while(lt<n && rt<n){
+                if(sum+arr[rt]<m){
+                    sum+=arr[rt];
+                    rt++;
+                }
+                else if(sum+arr[rt]>m){ //초기화 
+                    lt++;
+                    rt=lt;
+                    sum=0;
+                }
+                else if(sum+arr[rt]===m){
+                    count++;
+                    console.log(lt,rt);
+                    lt++;
+                    rt++;
+                    
+                }
+            }
+            return count;
+
+        }
+        console.log(solution(6,[1,2,1,3,1,1,1,2]));
+    </script>
+</body>
+</html>

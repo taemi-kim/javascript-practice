@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모든 아나그램 찾기</title>
+</head>
+<body>
+    <script>
+        function solution(s, t){
+            //s에 t와 아나그램이 되는 부분문자열의 갯수 (연속)
+            //해쉬맵의 key 를ㄹ 저장할 때 문자 마다가 아니라 3연속 부분문자열 마다 저장 임시로?
+            //여기서 slilding window 사용 
+            //투포인터는 해쉬맵 두개 만들ㄹ 때 하는겅가 ㅠ 
+            //메인 해쉬맵은 t 문자열이랑 하고 
+            //애내그램인ㅇ지는 s 문자열 3window 씩 iterate 하면서 메인 해쉬맵 상쇄, 자 ㄹ되면 count++
+            let k = t.length;
+            let sH = new Map();
+            let count=0;
+            for(let x of t){ //해쉬맵
+                if(sH.has(x)) sH.set(x. sH.get(x)+1);
+                else sH.set(x, 1);
+            }
+            let temp;
+            for(let i=k; i<s.length+1; i++){
+                temp = s.substring(i, i-k); //sliding window 맞냐
+                //console.log(temp);
+                let flag=1;
+                for (let x of temp){
+                    if(!sH.has(x)) flag=0;
+                    else {
+                        sH.set(x, sH.get(x)-1);
+                        //console.log(sH);
+                    }
+                    console.log(sH.get(x))
+
+                }
+                
+                if(flag===1) {
+                    count++;
+                    console.log(temp);
+                }
+
+            }
+            return count;
+
+        }
+        console.log(solution("bacaAacba","abc"));
+    </script>
+</body>
+</html>

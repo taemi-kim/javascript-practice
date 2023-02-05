@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학급 회장</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let answer;
+            str=str.split("");
+            let temp=Array.from({length:5},()=>0);
+            switch(temp){
+                case "A":
+                    temp.splice(0,0,temp[0]+1);
+                    break;
+                case "B":
+                    temp[1]+=1;
+                    break;
+                case "C":
+                    temp[2]+=1;
+                    break;
+                case "D":
+                    temp[3]+=1;
+                    break;
+                case "E":
+                    temp[4]+=1;
+                    break;
+            }
+            console.log(temp);
+            answer=Math.max(temp);
+            return answer;
+
+        }
+        console.log(solution("BACBACCACCBDEDE"));
+    </script>
+</body>
+</html>

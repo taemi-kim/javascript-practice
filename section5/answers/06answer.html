@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학급 회장 정답</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let answer;
+            let sH = new Map();
+            for (let x of str){
+                if(sH.has(x)) sH.set(x, sH.get(x)+1);
+                else sH.set(x, 1); //없을 때, 첫 한 개 
+            }
+            //console.log(sH);
+            let max=Number.MIN_SAFE_INTEGER;
+            for(let [key, val] of sH){
+                //console.log(key, val);
+                if(val>max){
+                    max=val;
+                    answer=key;
+                }
+            }
+            return answer;
+        }
+        console.log(solution("BACBACCACCBDEDE"));
+    </script>
+</body>
+</html>
