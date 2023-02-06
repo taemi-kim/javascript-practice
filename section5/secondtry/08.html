@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모든 아나그램 찾기 재도전</title>
+</head>
+<body>
+    <script>
+        function compareMaps(h1, h2){
+            if(h1.size!==h2.size) return false;
+            for(let [key1, val1] of h1){
+                //key1이 h2에 있는가
+                if(!h2.has(key1) || h2.get(key1)!==val1) return false;
+                //key가 map2에 들어있으면? //key는 있는데 value가 다르면? 
+         
+            }
+            return true;
+        }
+        function solution(s,t){
+            //tH 부터 만들기 - hashmap
+            let tH = new Map();
+            for (let x of t){
+                if(tH.has(x)) tH.set(x, tH.get(x)+1);
+                else tH.set(x, 1);
+            }
+            let n=t.length;
+            let m=s.length;
+            let answer=0, lt=0, rt=n-1;
+
+            //rt 전까지만 초기값으로 넣어두기 
+            let sH = new Map();
+            for(let i=0; i<rt; i++){
+                if(sH.has(s[i])) sH.set(s[i], get(s[i])+1);
+                else sH.set(s[i], 1);
+
+                
+            }
+            //여기까지는 좋은데, 
+            //접근 방법이 틀림! while 이 아니라 for 사용해
+            //하나 더 추가 해야지 해쉬맵에!
+            for (let i=rt; i<m; i++){ 
+                if(sH.has(s[i])) sH.set(s[i], sH.get(s[i])+1);//추가
+                else sH.set(s[i], 1);
+                if(compareMaps(sH, tH)) answer++; //비교
+                sH.set(s[i], sH.get(s[i]-1)); //하나 빼주는거지 바로 없애면 안돼!
+                if(sH.get(s[i])===0) sH.delete(s[lt]);
+                lt++;
+            }
+            //sliding window 
+            //1. 빼고, 2. 추가, 3.비교 의 반복
+
+
+            // while(lt<m && rt<m){
+            //     sH.delete(lt++);
+            //     rt++;
+            //     if(sH.has(s[rt])) sH.set(s[rt], get(s[rt])+1);
+            //     else sH.set(s[rt], 1);
+            //     if(compareMaps(sH, tH)) answer++;
+            // }
+            
+            return answer;
+        }
+        console.log(solution("bacaAacba","abc"));
+    </script>
+</body>
+</html>
