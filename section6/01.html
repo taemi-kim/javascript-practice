@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>올바른 괄호(스택)</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let answer="YES";
+            let stack = [];
+            //(는 push
+            //)는 pop
+            for(let x of str){
+                if(x==="(") stack.push(x);
+                else stack.pop();
+            }
+            if(stack!=="") answer="NO";
+            return answer;
+        }
+        console.log(solution("(()(()))(()"));
+    </script>
+</body>
+</html>
