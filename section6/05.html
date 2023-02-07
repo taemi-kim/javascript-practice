@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let answer=0;
+            let stack=[];
+            let stick=0;
+            let lazor=0 // 레이저 true or false
+
+            for(let x of str){
+                if(x==="(") {
+                    //이거 이전의 가 "("면..이전 등장한 막대기를 한템포 늦게 세주는 거 
+                    //내가 ")"이었으면 레이저인거니까 
+                    if(stack[stack.length]==="("){
+                        stick++;
+                    }
+
+
+                    //")"이거면 새로운 막대 추가
+                    //새로 들어온 게 
+                    stack.push(x); 
+                    //lazor=0; //레이저 아님 으로 초기화
+                }
+                else{
+                    //어차피 ")"얘가 들어오면 either 레이저 Or 막대기 끝
+                    //지금 stack의 마지막 원소가 "(" Or ")" 
+                    //레이저가 되는 경우 
+                    // if(stack[stack.length]==="(") {//레이저 o --> 얘는 솔직히 위 else가 이미 해주는 거 아니ㄴ가 
+                    //     lazor=1;
+                    // } //다 여기서 근데 참이 될 듯.. 
+                    answer+= stack.length-1
+                    stack.pop()
+
+                }
+            }
+            answer+=stick;
+            return answer;
+
+        }
+        console.log(solution("()(((()())(())()))(())"));
+        console.log(solution("(((()(()()))(())()))(()())"));
+    </script>
+</body>
+</html>

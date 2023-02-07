@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후위식 (postfix)</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            let stack=[];
+            for(let x of str){
+                if (!isNaN(x)) {//isNaN()은 숫자면 false니까 
+                    stack.push(x);
+                }else{
+                    let lt=rt=0;
+                    rt=stack.pop();
+                    lt=stack.pop();
+                    //stack.push(eval(lt+x+rt)); 
+                    if(x==="+") stack.push(lt+rt);
+                    else if(x==="-") stack.push(lt-rt);
+                    else if(x==="*") stack.push(lt*rt);
+                    else if(x==="/") stack.push(lt/rt);
+                }
+                
+            }
+            return stack[0];
+        }
+        console.log(solution("352+*9-"));
+    </script>
+</body>
+</html>

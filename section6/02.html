@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>괄호문자제거</title>
+</head>
+<body>
+    <script>
+        function solution(str){
+            //소괄호 사이에 존재하는 모든 문자 제거, 남은 문자만 출력
+            let stack=[];
+            let answer;
+            for(let x of str){
+                if(x===")"){
+                    //이것보다 간결하게 쓰는법
+                    while(stack.pop!=="("); //이 조건문이 false가 될 떄까지 계속 돌아 
+                    //while(x!=="(") stack.pop(); //
+                }
+                else stack.push(x);
+            }
+            answer=stack.join("");
+            return answer;
+
+        }
+        console.log(solution("(A(BC)D)EF(G(H)(IJ)K)LM(N)"));
+    </script>
+</body>
+</html>
