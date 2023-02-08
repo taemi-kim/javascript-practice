@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교육과정 설계</title>
+</head>
+<body>
+    <script>
+        function solution(req, plan){
+            let answer="YES";
+            let check="";
+            let queue=Array.from({length:plan.length}, (v,i)=> plan[i]);
+            //console.log(queue);
+            req=req.split("");
+            console.log(req);
+    
+            while(queue.length){
+                for (let x of req){
+                if(queue[0]===x) {
+                    console.log(x, queue);
+                    check+=queue.shift();
+                }
+                else queue.shift();
+            }
+            }
+            
+            console.log(check);
+            if (check!==req.join("")) answer="NO";
+            return answer;
+        }
+        console.log(solution("CBA","CBDAGE"))
+    </script>
+</body>
+</html>

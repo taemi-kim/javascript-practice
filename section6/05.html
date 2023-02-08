@@ -12,12 +12,10 @@
             let answer=0, stick=0;
             let stack=[];
             for(let x of str){
-                if(x==="(") {
-                    stack.push(x); 
+                if(x==="(") stack.push(x); 
 
-                }
                 else{
-                    if(prev==="(") answer+= stack.length-1;
+                    if(prev==="(") answer+= stack.length-1; //-1해서 stack.pop()이 나중에 와도 된다
                     else stick++;
                     stack.pop()
 

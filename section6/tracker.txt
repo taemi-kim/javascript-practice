@@ -46,3 +46,31 @@
         //str 에 담겼었던 previous value 가 뭔지 알아야됌 
             //"("였었다면 레이저라는 얘기, 아니라면 막대기의 끝이라는 얘기니까
             
+    //차이점
+        //거의 다 비슷해..ㅠㅠㅜㅠㅜ
+        //나는 stick & answer 구분함 첨 로직엔 필요했는데지금은 그럴필ㄹ요 ㄴㄴ
+        //stack.pop()의 위치
+            //stack.pop()이 먼저 오지 않는대신
+            //stack.length-1; 난 이ㅓㄹㅎ게 해줌
+        //나는 prev, 여기는 s[i-1]
+
+        //인풋이 괄호면 보통은 거의 스택
+
+07 교육과정설계
+    로직을 듣고 나서 풀었음
+    근데 
+    //차이점
+        //let queue=Array.from({length:req.length}, (v,i)=>req[i]); 이ㅓㄹㅎ게 하지 않고
+        //let queue=req.split(""); 이렇게 써도 된다 
+
+        if(queue.includes(x)){
+                    if(queue[0]===x) queue.shift();
+                    else return "NO";
+                }
+
+                말고 
+        if(queue.includes(x)){
+            if(x!==queue.shift()) return "NO" //한줄로 줄일 수 잇음 
+            if 안의 식을 체크하려고 queue.shift()를 했을 거기 때문에! 
+            
+            }
