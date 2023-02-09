@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Least Recently Used</title>
+</head>
+<body>
+    <script>
+        function solution(n, arr){
+            let cache = Array.from({length:n}, ()=>0);
+            for (let x of arr){
+                if(!cache.includes(x)){
+                    for(let i=n-1; i>=1; i--){
+                        cache[i]=cache[i-1];
+                        //answer.unshift(x); -> 사이즈가 커지긴 하지만 뒤로 미루긴 ㅎ한다
+                        //if(answer.length>size) answer.pop(); //정해진 사이즈보다 커지ㅕㅁㄴ
+                    }
+                    // cache[0]=x;
+                }else{
+                    //answer.splice(pos, 1); //cachhe hit 난 부분을 지우고
+                    //answer.unshift(x);
+                    for(let i=cache.indexOf(x); i>=1; i--){
+                        cache[i]=cache[i-1];
+                        // cache[0]=x;
+                    }
+                    // cache[0]=x;
+                }cache[0]=x;
+            }
+            return cache;
+        }
+        console.log(solution(5, [1,2,3,2,6,2,3,5,7]));
+    </script>
+</body>
+</html>

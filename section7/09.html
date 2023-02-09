@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결혼식</title>
+</head>
+<body>
+    <script>
+        function solution(wedding){
+            //오는 시간 가는 시간
+            //좌표 정렬, 그리디
+
+            //가장 늦게 떠나는 순으로 정렬
+            //arr[i][0]이 arr[i+1][1] 보다 작으면 count++;
+            //endt가 더 커야함 이전의 startime보다 
+            let answer=0;
+            let n=wedding.length;
+            wedding.sort((a,b)=>{
+                if(a[0]===b[0]) return a[1]-b[1];
+                else return a[0]-b[0];
+            })
+            
+            //let et=0;
+            //
+            //[i] anchor 로 두고 
+            //j=i+1 끝 시간이 첫시간보다 크면 ++하고 그 다음걸로 넘어가서 체크하고 맞으면 또 넘어가고 아니면 break
+            
+            for(let i=0; i<n; i++){ 
+                let temp=1; //데이터 하나를 기준으로 비교하는 거니까 
+                for(let j=i+1; j<n; j++){ //그 다음부터 시작해서 차례로 iterate
+                    if(wedding[i][1]>wedding[j][0]){ //엔드타임이 시작타임보다 크면 같이 있는거고 그 다음에도 같이 있는지 확인
+                        temp++;
+                        
+                    }
+                    else break; //아니면 바로 끝 더 이상 겹칠 수 없으니까
+                }
+                if(answer<temp) answer=temp; //더 큰값으로 변경
+            }
+           
+            return answer;
+
+        } 
+
+        console.log(solution([[14,18],[12,15],[15,20],[20,30],[5,14]]));
+    </script>
+</body>
+</html>

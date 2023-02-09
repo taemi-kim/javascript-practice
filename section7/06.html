@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장난꾸러기 현수</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            //오름차순 정렬
+            //앞에서부터 정렬된 배열과 다른 원소의 element answer 배열에 저장 
+            //그냥 sort 쓰게 해주시면 안됩니까 선생님
+            //깊은 복사를 해야하네
+            let answer=[];
+            let n=arr.length;
+            let original=JSON.parse(JSON.stringify(arr)); //deep copy
+            //배열 안에 배열이 있을 때는 .slice();쓰면 안된다 기본형일 때는 깊응ㄴ  복사로 쓸 수 있음
+            //arr.slice();
+
+            //arr=arr.sort((a,b)=>{return a-b;});
+            //arr=arr.sort((a,b)=>a-b); 
+
+            //삽입정렬
+            for(let i=0; i<n; i++){
+                let j, tmp=arr[i];
+                for(j=i-1; j>=0; j--){
+                    if(arr[j]>tmp) arr[j+1]=arr[j];
+                    else break;
+                }
+                arr[j+1]=tmp;
+            }
+            // console.log(arr);
+            // console.log(original);
+
+            //two pointers
+            let p1=p2=0;
+            while(p1<n && p2<n){
+                if(arr[p1]===original[p2]){
+                    p1++;
+                    p2++;
+                }
+                else {
+                    answer.push(p2+1);
+                    p1++;
+                    p2++;
+                }
+            }
+            return answer;
+        }
+        console.log(solution([120, 125, 152, 130, 135, 135, 143, 127, 160]));
+        console.log(solution([120, 130, 150, 150, 130, 150]));
+    </script>
+</body>
+</html>

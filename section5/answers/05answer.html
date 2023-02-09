@@ -14,10 +14,10 @@
             for(let i=0; i<k; i++) sum+= arr[i]; //initial sum
             answer=sum;
             for(let i=k; i<n; i++){
-                sum+=arr[i]-arr[i-k];
+                sum+=arr[i]-arr[i-k]; //sliding window
                 answer=Math.max(answer, sum); //나는 이걸 왜 밖에다 선언했지 
+                //안에다가 선언하는 이유는 for문 마다 값이 변하기 떄문이다. 
             }
-            
             return answer;
             
         }

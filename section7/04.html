@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삽입정렬</title>
+</head>
+<body>
+    <script>
+        function solution(arr){
+            let answer=arr;
+            let n=arr.length;
+            for (let i=0; i<n; i++){
+                let j, tmp=arr[i];  11
+                
+                for (j=i-1; j>=0; j--){
+                    if(arr[j]>tmp) arr[j+1]=arr[j];
+                    else break; //temp 보다 작은 값이 발견! j지점에서 멈춤
+                }
+                arr[j+1]=tmp; //arr[j]의 값은 tmp보다 작으니까 그 담에 넣어줘야함
+            }
+            return answer;
+        }
+        console.log(solution([11, 7, 5, 6, 10, 9, 11]));
+    </script>
+</body>
+</html>
