@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뮤직비디오(결정알고리즘)</title>
+</head>
+<body>
+    <script>
+        function count(songs, capacity){
+            let cnt=1, sum=0; //dvd  한장은 필요하니까 count=1;
+            for(let x of songs){
+                if(sum+x>capacity){ //맥시멈을 넘으면 
+                    cnt++; //
+                    sum=x; //새로운디비디 시작
+                }
+                else sum+=x;
+            }
+        }
+        function solution(n,arr){
+            //로직이
+            //lt=가장큰원소의값
+            //rt=모든원소를ㄹ 더한 값
+            //mid 값 찾고 만들 수 있는 최대 dvd 갯수가 m개 이하면 답이 됨
+            if(count((songs,mid))<=m){answer=mid; rt=mid-1;
+            //근데 한번 답이 되는 걸 찾았다하더래도 전 후를 비교해야봐야함
+            //이분탐색은 lt가 rt보다 커질때까지 끝장을 보는거야~!!! 
+
+            //count function으로 따로 만들ㄹ어서 songs/capacity 로 돌려주는거 
+            //이분 검색 외워라 ㅋ ㅋ ㅋ ㅋ  ㅋ 
+            while(lt<=rt){
+                let mid=parseInt((lt+rt)/2);
+                
+            }
+        }
+        console.log(solution(3, [1,2,3,4,5,6,7,8,9]));
+    </script>
+</body>
+</html>

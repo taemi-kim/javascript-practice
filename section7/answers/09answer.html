@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결혼식 답</title>
+</head>
+<body>
+    <script>
+        function solution(){
+            //로직:
+            
+            //한 사람의 데이터를 
+            //시작 시간: s
+            //끝나는 시간: e 로 구분해서 쪼갬
+                //*쪼갠 후 시간 기준 오름차순 정렬
+                //*s랑 e 중에 e가 더 먼저 오도록 함 문자는 ascii 로 바꿔준다 .charCodeAt()
+            //[5,s] [12,s], [14,e], [14,s], [15,e], [15,s] [18,e]
+            //s를 만나면 count++
+            //e를 만나면 count--
+            //마지막 count 를 answer 랑 비교해서 max 값
+        }
+        console.log(solution([[14,18],[12,15],[15,20],[20,30],[5,14]]));
+    </script>
+</body>
+</html>

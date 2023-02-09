@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뮤직비디오(결정알고리즘)</title>
+</head>
+<body>
+    <script>
+        function count(songs, capacity){
+            let cnt=1, sum=0;
+            for(let x of songs){
+                if(sum+x>capacity){
+                    cnt++;
+                    sum=x;
+                }else sum+=x;
+            }
+            return cnt;
+        }
+        function solution(m, songs){
+            let n=songs.length;
+            let answer;
+            let lt=Math.max(...songs);//가장 큰 원소 하나 값
+            let rt=reduce((a,b)=>a+b,0);//모든 원소의 값
+            while(lt<=rt){
+                let mid=parseInt((lt+rt)/2);
+                if(count(songs, mid)<=m){
+                    answer=mid; //일단 저장해놓고 
+                    rt=mid-1; //더 나은 값 없나 탐색~
+                }
+                else lt=mid+1; //용량 좀 더 키우기 너무 많은 dvd 가 나오니까 
+            }
+            return answer;
+        }
+        console.log(solution(3, [1,2,3,4,5,6,7,8,9]));
+    </script>
+</body>
+</html>
