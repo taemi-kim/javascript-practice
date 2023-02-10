@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이진수 출력(재귀)</title>
+</head>
+<body>
+    <script>
+        function solution(n){
+            let answer="";
+            //십진수를 이진수로 출력
+            function DFS(L){
+                if(L===0) return;
+                else{
+                    DFS(parseInt(L/2));
+                    answer+=(L%2); //String(n%2);
+                }
+            
+            DFS(n);
+            return answer;
+
+        }
+        console.log(solution(11));
+    </script>
+</body>
+</html>
