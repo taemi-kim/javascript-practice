@@ -70,3 +70,34 @@ DFS(v*2); //왼
                 }
             }
             DFS(0,0);
+
+07 최대점수 궇하기 
+     못풀었어요~ 
+     D(L, sum, time) 으로 돌린당 
+
+     function solution(lim, arr){
+            let n=arr.length;
+            let answer=0;
+            function DFS(L, sum, time){
+                if(time>lim) return;
+                if(L===n){
+                    //console.log(sum);
+                    answer=Math.max(answer, sum);
+                }else{
+                    DFS(L+1,sum+arr[L][0],time+arr[L][1]);
+                    DFS(L+1,sum,time);
+                }
+            }
+            DFS(0,0,0);
+            return answer;
+    
+    괜찮아!!! 나쁘지 않음 
+    arr[L][0]이 시간인지 arr[L][1]인지 모르겠어 
+
+08 중복순열ㄹ
+    다중 for문과 재귀의 차이점
+    : 다중 for문은 확장성이 부족함. 인풋 n, m 값이 달라질텐데 그 떄마다 for문의 갯수를 
+    늘릴 순 없는거니까
+
+09 동전교환
+    
